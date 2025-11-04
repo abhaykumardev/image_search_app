@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image search app</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=search"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>Image Search App</h1>
+      <form>
+        <div class="search-container">
+          <input type="text" class="searchinp" placeholder="Search-Images" />
+          <span class="material-symbols-outlined"> search </span>
+        </div>
+      </form>
+    </header>
+
+    <main>
+      <section>
+        <div class="images-container">
+          <h2>No Image to Show</h2>
+        </div>
+        <!-- Image Preview Modal -->
+        <div class="modal">
+          <span class="close">&times;</span>
+          <img class="modal-img" src="" alt="" />
+          <button class="modal-download">⬇ Download</button>
+        </div>
+
+        <button class="loadbtn">Load More</button>
+      </section>
+      
+
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

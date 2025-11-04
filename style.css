@@ -1,0 +1,326 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+body{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-block:40px ;
+   margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(-45deg, rgba(0, 0, 0, 0.95), rgba(15, 15, 15, 0.9), rgba(25, 25, 25, 0.85), rgba(40, 40, 40, 0.8));
+
+  background-blend-mode: overlay;
+  background-size: 400% 400%;
+  animation: gradientShift 12s ease infinite;
+  min-height: 100vh;
+  color: #fff;
+
+}
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+header{
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+}
+header h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  text-align: center;
+  color: #f5f5f5;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px rgba(255,255,255,0.2),
+               0 0 20px rgba(255,255,255,0.1);
+  margin-top: 40px;
+  transition: transform 0.3s ease;
+}
+
+header h1:hover {
+  transform: scale(1.05);
+}
+
+
+header form .search-container{
+margin-top: 20px;
+position: relative;
+}
+
+input{
+  width: 100%;
+  font-size: 18px;
+  padding: 12px 24px;
+  border-radius: 15px;
+  border: none;
+  background: linear-gradient(135deg, #a8edea, #fed6e3);
+
+}
+
+.material-symbols-outlined{
+ position: absolute;
+ right: 10px;
+ bottom: 11px;
+ color: #727780;
+ cursor: pointer;
+}
+
+.images-container{
+  margin-block: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+
+}
+
+.images-container img{
+  width: 300px;
+  height: 280px;
+
+}
+.imagediv {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.imagediv img {
+  width: 100%;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.imagediv:hover img {
+  transform: scale(1.05);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.2);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.imagediv:hover .overlay {
+  opacity: 1;
+}
+
+.loadbtn {
+  display: block;
+  margin: 40px auto; /* centers button horizontally */
+  padding: 12px 28px;
+  background: linear-gradient(90deg, #1f1f1f, #000000);
+  color: #fff;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  display: none;
+}
+
+.loadbtn:hover {
+  background: linear-gradient(90deg, #2c2c2c, #0a0a0a);
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+.loadbtn:disabled {
+  background: #222;
+  color: #777;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+main section{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center ;
+}
+
+.download-btn {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+}
+
+.imagediv:hover .download-btn {
+  opacity: 1;
+}
+
+.download-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #fff;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
+  transform: scale(1.1);
+}
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 14px rgba(255, 255, 255, 0.3);
+  }
+}
+
+.download-btn {
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+/* Modal base */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(6px);
+  transition: all 0.3s ease;
+}
+
+/* Modal Image */
+.modal-img {
+  display: block;
+  margin: auto;
+  max-width: 90%;
+  max-height: 80vh;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255,255,255,0.2);
+  animation: fadeIn 0.3s ease;
+}
+
+/* Close button (X) */
+.close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.close:hover {
+  color: #bbb;
+}
+
+/* Download button */
+.modal-download {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 50px;
+  padding: 10px 25px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 8px rgba(255,255,255,0.3);
+}
+
+.modal-download:hover {
+  background: rgba(255,255,255,0.2);
+  box-shadow: 0 0 15px rgba(255,255,255,0.6);
+  transform: translateX(-50%) scale(1.05);
+}
+
+/* Smooth fade-in */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ===== Toast Notifications ===== */
+.toast-container {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 2000;
+}
+
+.toast {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Variants */
+.toast-success {
+  border-left: 4px solid #00e676;
+}
+
+.toast-error {
+  border-left: 4px solid #ff5252;
+}
+
+.toast-info {
+  border-left: 4px solid #2196f3;
+}
+
+
+
+
+@media screen and (max-width:920px) {
+  header{
+    width: 80%;
+  }
+}
