@@ -6,9 +6,8 @@ Built using **HTML**, **CSS**, and **JavaScript** — no frameworks, just pure f
 ---
 
 ## 🚀 Live Preview
-🔗 **Try it here:** [Image Search App](https://abhaykumar.dev.github.io/image-search-app/)
+🔗 🔗 **Live Demo:** https://abhaykumardev.github.io/image_search_app/
 
-*(replace `your-username` with your actual GitHub username)*
 
 ---
 
